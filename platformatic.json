@@ -1,0 +1,12 @@
+{
+  "$schema": "https://example.com/schemas/foo.json",
+  "extends": "./foo",
+  "server": {
+    "port": 0,
+    "hostname": "127.0.0.1"
+  },
+  "foo": {
+    "text": "Hello World"
+  }
+}
+
