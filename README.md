@@ -1,0 +1,1 @@
+Platformatic Stackable example
