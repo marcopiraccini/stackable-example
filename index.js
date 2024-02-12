@@ -9,7 +9,7 @@ async function stackable (fastify, opts) {
   await fastify.register(require('./plugins/example'), opts)
 }
 
-stackable.configType = 'test-stackable-fix-app'
+stackable.configType = 'stackable-example-app'
 stackable.schema = schema
 stackable.Generator = Generator
 stackable.configManagerConfig = {

@@ -1,9 +1,10 @@
 {
   "name": "stackable-example",
-  "version": "0.0.5",
+  "version": "0.0.6",
+  "main": "index.js",
   "bin": {
-    "create-test-stackable-fix": "./cli/create.js",
-    "start-test-stackable-fix": "./cli/start.js"
+    "create-stackable-example": "./cli/create.js",
+    "start-stackable-example": "./cli/start.js"
   },
   "scripts": {
     "build:config": "node lib/schema.js | json2ts > config.d.ts"

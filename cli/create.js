@@ -17,7 +17,7 @@ async function execute () {
     string: ['dir', 'port', 'hostname'],
     boolean: ['typescript', 'install', 'plugin', 'git'],
     default: {
-      dir: join(process.cwd(), 'test-stackable-fix-app'),
+      dir: join(process.cwd(), 'stackable-example-app'),
       port: 3042,
       hostname: '0.0.0.0',
       plugin: true,
