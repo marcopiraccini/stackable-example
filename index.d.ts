@@ -1,9 +1,9 @@
 import { FastifyInstance } from 'fastify'
 import { PlatformaticApp } from '@platformatic/service'
-import { StackableExampleConfig } from './config'
+import { TestStackableFixConfig } from './config'
 
 declare module 'fastify' {
   interface FastifyInstance {
-    platformatic: PlatformaticApp<StackableExampleConfig>
+    platformatic: PlatformaticApp<TestStackableFixConfig>
   }
 }

@@ -9,7 +9,7 @@ async function stackable (fastify, opts) {
   await fastify.register(require('./plugins/example'), opts)
 }
 
-stackable.configType = 'stackable-example-app'
+stackable.configType = 'test-stackable-fix-app'
 stackable.schema = schema
 stackable.Generator = Generator
 stackable.configManagerConfig = {
@@ -29,4 +29,5 @@ stackable.configManagerConfig = {
 stackable[Symbol.for('skip-override')] = true
 
 module.exports = stackable
+module.exports.schema = schema
 module.exports.Generator = Generator
