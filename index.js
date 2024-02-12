@@ -29,3 +29,4 @@ stackable.configManagerConfig = {
 stackable[Symbol.for('skip-override')] = true
 
 module.exports = stackable
+module.exports.Generator = Generator
