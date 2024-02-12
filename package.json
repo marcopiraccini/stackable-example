@@ -1,14 +1,27 @@
 {
   "name": "stackable-example",
-  "version": "0.0.2",
-  "description": "Stackable Example by Marco Piraccini",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "version": "0.0.3",
   "main": "index.js",
-  "author": "Marco Piraccini",
-  "license": "MIT",
+  "bin": {
+    "create-stackable-example": "./cli/create.js",
+    "start-stackable-example": "./cli/start.js"
+  },
+  "scripts": {
+    "build:config": "node lib/schema.js | json2ts > config.d.ts"
+  },
+  "devDependencies": {
+    "fastify": "^4.26.0"
+  },
   "dependencies": {
-    "@platformatic/service": "^1.17.0"
+    "@platformatic/config": "^1.20.3",
+    "@platformatic/service": "^1.20.3",
+    "json-schema-to-typescript": "^13.0.0",
+    "pino": "^8.0.0",
+    "pino-pretty": "^10.0.0",
+    "minimist": "^1.2.0",
+    "platformatic": "^1.20.3"
+  },
+  "engines": {
+    "node": "^18.8.0 || >=20.6.0"
   }
 }

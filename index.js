@@ -1,63 +1,19 @@
-const { schema, platformaticService } = require('@platformatic/service')
+'use strict'
 
-/**  @type {import('fastify').FastifyPluginAsync<{}>} */
-async function foo (app, opts) {
-  const text = app.platformatic.config.foo.text
-  app.get('/foo', async (request, reply) => {
-    return text
-  })
+const { platformaticService } = require('@platformatic/service')
+const { schema } = require('./lib/schema')
+const { Generator } = require('./lib/generator')
 
-  await app.register(platformaticService, opts)
-
-  app.get('/', async (request, reply) => {
-    return 'Your new root endpoint'
-  })
+async function stackable (fastify, opts) {
+  await fastify.register(platformaticService, opts)
+  await fastify.register(require('./plugins/example'), opts)
 }
 
-foo.configType = 'stackable-test'
-
-// break Fastify encapsulation
-foo[Symbol.for('skip-override')] = true
-
-// The schema for our configuration file
-foo.schema = {
-  $id: 'https://example.com/schemas/foo.json',
-  title: 'Foo Service',
-  type: 'object',
-  properties: {
-    server: schema.server,
-    plugins: schema.plugins,
-    metrics: schema.metrics,
-    watch: {
-      anyOf: [schema.watch, {
-        type: 'boolean'
-      }, {
-        type: 'string'
-      }]
-    },
-    $schema: {
-      type: 'string'
-    },
-    extends: {
-      type: 'string'
-    },
-    foo: {
-      type: 'object',
-      properties: {
-        text: {
-          type: 'string'
-        }
-      },
-      required: ['text']
-    }
-  },
-  additionalProperties: false,
-  required: ['server']
-}
-
-// The configuration for the ConfigManager
-foo.configManagerConfig = {
-  schema: foo.schema,
+stackable.configType = 'stackable-example-app'
+stackable.schema = schema
+stackable.Generator = Generator
+stackable.configManagerConfig = {
+  schema,
   envWhitelist: ['PORT', 'HOSTNAME'],
   allowToWatch: ['.env'],
   schemaOptions: {
@@ -65,7 +21,11 @@ foo.configManagerConfig = {
     coerceTypes: true,
     allErrors: true,
     strict: false
-  }
+  },
+  transformConfig: async () => {}
 }
 
-module.exports = foo
+// break Fastify encapsulation
+stackable[Symbol.for('skip-override')] = true
+
+module.exports = stackable
