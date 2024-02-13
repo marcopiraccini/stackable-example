@@ -7,3 +7,5 @@ declare module 'fastify' {
     platformatic: PlatformaticApp<StackableExampleConfig>
   }
 }
+
+export { PlatformaticApp, StackableExampleConfig }
