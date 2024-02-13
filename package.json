@@ -1,6 +1,6 @@
 {
   "name": "stackable-example",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "main": "index.js",
   "bin": {
     "create-stackable-example": "./cli/create.js",
@@ -13,13 +13,13 @@
     "fastify": "^4.26.0"
   },
   "dependencies": {
-    "@platformatic/config": "^1.21.0",
-    "@platformatic/service": "^1.21.0",
+    "@platformatic/config": "^1.21.1",
+    "@platformatic/service": "^1.21.1",
     "json-schema-to-typescript": "^13.0.0",
     "pino": "^8.0.0",
     "pino-pretty": "^10.0.0",
     "minimist": "^1.2.0",
-    "platformatic": "^1.21.0"
+    "platformatic": "^1.21.1"
   },
   "engines": {
     "node": "^18.8.0 || >=20.6.0"
